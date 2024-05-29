@@ -66,13 +66,13 @@ def iniciar_driver():
     driver = uc.Chrome(use_subprocess=True, options=chrome_options)
     return driver
 
+'''
 def obter_html(driver):
     try:
         # Abre a página de login do Mobills
         driver.get('https://web.mobills.com.br/auth/login')
 
         wait = WebDriverWait(driver, 30)
-        #input("Pressione Enter para continuar...")
 
         # Localiza e clica no botão de login com o Google
         wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '#signin_with > div > div > div'))).click()
@@ -80,37 +80,24 @@ def obter_html(driver):
         # Aguarda até que a página de login do Google seja carregada completamente
         time.sleep(1)
 
+        # Muda para a janela de login do Google
         windows = driver.window_handles
         driver.switch_to.window(windows[-1])
 
+        # recupera as variaveis de ambiente
         email_gmail = os.getenv('EMAIL_GMAIL')
         senha_gmail = os.getenv('SENHA_GMAIL')
         # Insira seu e-mail do Google
-        #email_gmail = "brunoropacheco@gmail.com"
         wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '#identifierId'))).send_keys(email_gmail)
         
         # Clica no botão "Próxima"
         wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '#identifierNext > div > button > span'))).click()
 
-        # Aguarda até que a página de senha seja carregada completamente
-        #time.sleep(3)
-        #input("Pressione Enter para continuar...")
-
         # Insira sua senha do Google
-        #senha_gmail           = "q0p!w9o@e8i#4&6"
         wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '#password > div.aCsJod.oJeWuf > div > div.Xb9hP > input'))).send_keys(senha_gmail)
 
         # Clica no botão "Próxima" para fazer login
         driver.find_element(By.CSS_SELECTOR, '#passwordNext > div > button > span').click()
-
-        # Aguarda até que o login seja concluído
-        #time.sleep(5)
-
-        #opcao de smartphone ou tablet
-
-        #wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '#yDmH0d > c-wiz > div > div.eKnrVb > div > div.j663ec > div > form > span > section:nth-child(2) > div > div > section > div > div > div > ul > li:nth-child(3) > div > div.vxx8jf'))).click()
-
-        # Aguarda até que o login seja concluído
 
         #volta para a janela principal
         windows = driver.window_handles
@@ -122,21 +109,15 @@ def obter_html(driver):
         
         # Após o login, redireciona para a página de transações
         driver.get('https://web.mobills.com.br/transactions')
-        wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div/div/div/main/div[2]/div[1]/div/button/span[1]/h6')))
-
-        # Aguarda um tempo para garantir que a página carregue completamente
-        #time.sleep(10)
-        input("Pressione Enter para continuar...")  
-        
+        wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div/div/div/main/div[2]/div[1]/div/button/span[1]/h6'))) 
+        /html/body/div[1]/div/div/div/main/div[2]/div[2]/div[1]/div/div[1]/div[2]/button[2]/span[1]/svg
+        /html/body/div[1]/div/div/div/main/div[2]/div[2]/div[1]/div/div[1]/div[2]/button[2]/span[1]/svg/path
         # Check if it is after the 10th day of the month
-        #print(datetime.datetime.now().day)
         if datetime.datetime.now().day >= 10:
             # Click on the "Next Month" button
             wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[1]/div/div[1]/div[2]/button[2]'))).click()
             # Wait for the page to load completely
             wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, 'table')))
-
-            input("Pressione Enter para continuar...")
             
             # Get the HTML of the page again
             html_final = driver.page_source
@@ -150,6 +131,100 @@ def obter_html(driver):
     with open('html_content.html', 'w') as file:
         file.write(html_final)
     return html_final
+'''
+def acessar_pagina_login(driver):
+    # Abre a página de login do Mobills
+    driver.get('https://web.mobills.com.br/auth/login')
+    # Localiza o botão de login com o Google
+    WebDriverWait(driver, 30).until(
+        EC.presence_of_element_located((By.CSS_SELECTOR, '#signin_with > div > div > div'))
+    )
+    return driver
+
+def login_google(driver):
+    # Localiza e clica no botão de login com o Google
+    driver.find_element(By.CSS_SELECTOR, '#signin_with > div > div > div').click()
+    time.sleep(1)
+    # Muda para a janela de login do Google
+    driver.switch_to.window(driver.window_handles[-1])
+    # recupera as variaveis de ambiente
+    email_gmail = os.getenv('EMAIL_GMAIL')
+    senha_gmail = os.getenv('SENHA_GMAIL')
+    # Insira seu e-mail do Google
+    WebDriverWait(driver, 30).until(
+        EC.presence_of_element_located((By.CSS_SELECTOR, '#identifierId'))
+    ).send_keys(email_gmail)
+    time.sleep(2)
+    # Clica no botão "Proxima"
+    driver.find_element(By.XPATH, '/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[3]/div/div[1]/div/div/button').click()
+    #esperar ate que caixa de senha apareca completamente
+    time.sleep(2)
+    # Insira sua senha do Google
+    WebDriverWait(driver, 30).until(
+        EC.presence_of_element_located((By.CSS_SELECTOR, '#password > div.aCsJod.oJeWuf > div > div.Xb9hP > input'))
+    ).send_keys(senha_gmail)
+    time.sleep(2)
+    # Clica no botão "Proxima" para fazer login
+    driver.find_element(By.CSS_SELECTOR, '#passwordNext > div > button > span').click()
+    #volta para a janela principal
+    time.sleep(5)
+    driver.switch_to.window(driver.window_handles[0])
+    return driver
+
+def acessar_pagina_transacoes(driver):
+    #esperar aparecer o saldo atual na pagina de dashboard
+    WebDriverWait(driver, 30).until(
+        EC.presence_of_element_located((By.CSS_SELECTOR, '#dashboard-transactions-cards-accumuleted-balance > div'))
+    )
+    # Após o login, redireciona para a pagina de transacoes
+    driver.get('https://web.mobills.com.br/transactions')
+    time.sleep(5)
+    WebDriverWait(driver, 30).until(
+        EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div/div/div/main/div[2]/div[1]/div/button/span[1]/h6'))
+    )
+    return driver
+
+def obter_html_final(driver):
+    # Check if it is after the 10th day of the month
+    if datetime.datetime.now().day >= 10:
+        time.sleep(5)
+        # Click on the "Next Month" button
+        WebDriverWait(driver, 30).until(
+            EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[1]/div/div[1]/div[2]/button[2]'))
+        ).click()
+        time.sleep(5)
+        # Wait for the page to load completely
+        WebDriverWait(driver, 30).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, 'table'))
+        )
+        time.sleep(5)
+    # Get the HTML of the page again
+    html_final = driver.page_source
+    #escrita do html em um arquivo
+    with open('html_content.html', 'w') as file:
+        file.write(html_final)
+    # Fecha o navegador
+    driver.quit()
+    return html_final
+
+def obter_html():
+    max_attempts = 3
+    for attempt in range(max_attempts):
+        driver = iniciar_driver()
+        try:
+            driver = acessar_pagina_login(driver)
+            driver = login_google(driver)
+            driver = acessar_pagina_transacoes(driver)
+            html_final = obter_html_final(driver)
+            return html_final
+        except Exception as e:
+            print(f"Erro na tentativa {attempt + 1}: {e}")
+            driver.quit()
+            if attempt == max_attempts - 1:
+                raise e  # Re-raise the exception if max attempts are reached
+            else:
+                print("Reiniciando processo...")
+                time.sleep(5)  # Espera alguns segundos antes de tentar novamente
 
 def processar_dados_sem_drive():
     #pega o html do arquivo ja pronto
@@ -283,21 +358,21 @@ Total: R$ {total}"""
         server.sendmail(sender, receiver, message)
 
 def main():
-    #driver = iniciar_driver()
     try:
-        #html = obter_html(driver)
-        #df = processar_dados_com_drive(html)
-        df = processar_dados_sem_drive()
-        df = ajustar_dataframe(df)
-        df.to_csv('transacoes_ajustado.csv')
-        #criar_grafico(df)
-        df_grouped = df.groupby('Categoria')['Valor'].sum()
-        enviar_email_mailtrap(df_grouped, df_grouped.sum())
+        html = obter_html()
+        print("HTML Obtido com sucesso")
     except Exception as e:
-        print(f"Erro: {e}")
+        print(f"Erro final apos multiplas tentativas: {e}")
     finally:
-        print("acabou")
-        #driver.quit()
+        print("Processo de obtencao do html concluido")
+    df = processar_dados_com_drive(html)
+    #df = processar_dados_sem_drive()
+    df = ajustar_dataframe(df)
+    df.to_csv('transacoes_ajustado.csv')
+    #criar_grafico(df)
+    df_grouped = df.groupby('Categoria')['Valor'].sum()
+    enviar_email_mailtrap(df_grouped, df_grouped.sum())
+    print("Email enviado com sucesso")
 
 if __name__ == "__main__":
     main()
