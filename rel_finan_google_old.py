@@ -62,7 +62,7 @@ def iniciar_driver():
     chrome_options = Options()
     chrome_options.add_argument("--disable-extensions")
     chrome_options.add_argument("--disable-gpu")
-    #chrome_options.add_argument("--headless")  # Uncomment this line if you want to start Chrome in headless mode
+    chrome_options.add_argument("--headless")  # Uncomment this line if you want to start Chrome in headless mode
     driver = uc.Chrome(use_subprocess=True, options=chrome_options)
     return driver
 
