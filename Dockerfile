@@ -11,7 +11,7 @@ WORKDIR /app
 RUN git clone https://github.com/brunoropacheco/rel_finan.git .
 
 # Instale as dependências do Python
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r dependencies.txt
 
 # Copie o arquivo de crontab para o contêiner
 COPY crontab /etc/cron.d/mycron
