@@ -1,2 +1,2 @@
 # Execute o script Python diariamente às 21h
-0 21 * * * root cd /app && git pull && /usr/local/bin/python /app/seu_script.py >> /var/log/cron.log 2>&1
+0 21 * * * root cd /app && git pull && /usr/local/bin/python /app/rel_finan_google_old.py >> /var/log/cron.log 2>&1
