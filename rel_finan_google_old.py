@@ -17,7 +17,7 @@ import smtplib
 
 def ajusta_caracteres(coluna):
     mapeamento = {
-        'á': 'a', 'ã': 'a', 'é': 'e', 'ê': 'e', 'í': 'i', 'ó': 'o', 'õ': 'o', 'ú': 'u',
+        'á': 'a', 'ã': 'a', 'ç': 'c', 'é': 'e', 'ê': 'e', 'í': 'i', 'ó': 'o', 'õ': 'o', 'ú': 'u',
         '-': '_', ' ': '_', 'flamengo_rj': 'flamengo', 'atletico_pr': 'athletico_pr',
         'sport_recife': 'sport', 'chapecoense_sc': 'chapecoense'
     }
@@ -29,24 +29,24 @@ def classificar_despesa(descricao):
     # Crie uma função para classificar as despesas com base nos termos
     # Lógica de classificação
     if 'latam' in descricao or 'iberia' in descricao or 'unidas' in descricao or 'airbnb' in descricao or 'azul' in descricao or 'smiles' in descricao or 'gol' in descricao or 'city_hall' in descricao or 'foco_aluguel' in descricao or 'tam_lin' in descricao:
-        return 'Viagem'
-    elif 'buffet' in descricao or 'ifd' in descricao or 'convenie' in descricao or 'hot_dog' in descricao or 'rest' in descricao or 'food' in descricao or 'emporio' in descricao or 'mercad' in descricao or 'pao_de_açucar' in descricao or 'coffee' in descricao or 'casal_20' in descricao or 'panito' in descricao or 'sush' in descricao or 'sabor' in descricao or 'cheiro' in descricao or 'delicate' in descricao or 'mercear' in descricao or 'drink' in descricao or 'ilha_mix' in descricao or 'hermon' in descricao or 'tempero' in descricao or 'alimento' in descricao or 'suco' in descricao or 'megamatte' in descricao or 'chocolate' in descricao or 'rei_do_mate' in descricao or 'sunomono'  in descricao or 'padar' in descricao or 'lanch' in descricao or 'depos' in descricao or 'sams' in descricao or 'assai' in descricao or 'pao_de' in descricao or 'cafe' in descricao or 'ex_touro' in descricao or 'beco_do_espa' in descricao or 'rockribs' in descricao or 'daiso' in descricao or 'lulu' in descricao or 'mcdonald' in descricao or 'burger' in descricao or 'subway' in descricao or 'kfc' in descricao or 'bobs' in descricao or 'outback' in descricao or 'pizza' in descricao or 'boulevard_go' in descricao or 'starbuc' in descricao or 'cookie' in descricao or 'frutas' in descricao:
+        return 'viagem'
+    elif 'buffet' in descricao or 'hortifruti' in descricao or 'ifd' in descricao or 'convenie' in descricao or 'hot_dog' in descricao or 'rest' in descricao or 'food' in descricao or 'emporio' in descricao or 'mercado_' in descricao or 'pao_de_açucar' in descricao or 'coffee' in descricao or 'casal_20' in descricao or 'panito' in descricao or 'sush' in descricao or 'sabor' in descricao or 'cheiro' in descricao or 'delicate' in descricao or 'mercear' in descricao or 'drink' in descricao or 'ilha_mix' in descricao or 'hermon' in descricao or 'tempero' in descricao or 'alimento' in descricao or 'suco' in descricao or 'megamatte' in descricao or 'chocolate' in descricao or 'rei_do_mate' in descricao or 'sunomono'  in descricao or 'padar' in descricao or 'lanch' in descricao or 'depos' in descricao or 'sams' in descricao or 'assai' in descricao or 'pao_de' in descricao or 'cafe' in descricao or 'ex_touro' in descricao or 'beco_do_espa' in descricao or 'rockribs' in descricao or 'daiso' in descricao or 'lulu' in descricao or 'mcdonald' in descricao or 'burger' in descricao or 'subway' in descricao or 'kfc' in descricao or 'bobs' in descricao or 'outback' in descricao or 'pizza' in descricao or 'boulevard_go' in descricao or 'starbuc' in descricao or 'cookie' in descricao or 'frutas' in descricao:
         return 'alimentacao'
-    elif 'uber' in descricao or '99app' in descricao or 'estaciona' in descricao or 'posto' in descricao or 'conectcar' in descricao or 'tembici' in descricao or 'park' in descricao or 'barcas' in descricao or 'digipare' in descricao or 'auto_pos' in descricao:
-        return 'Transporte'
-    elif 'americanas' in descricao or 'renner' in descricao or 'pag*lojasrennersa' in descricao or 'iphone' in descricao or 'casa_e_vi' in descricao or 'relusa' in descricao or 'marketplace' in descricao or 'mr_cat' in descricao or 'cresci_e_perdi' in descricao or 'tonys_baby' in descricao or 'cirandinha_baby' in descricao or 'loungerie' in descricao or 'amazon' in descricao or 'shein' in descricao or 'calcad' in descricao:
-        return 'Compras'
-    elif 'netflix' in descricao or 'spotify' in descricao or 'apple_com/bill' in descricao or 'primebr' in descricao or 'doist' in descricao:
+    elif 'uber' in descricao or 'hdi' in descricao or '99app' in descricao or 'estaciona' in descricao or 'posto' in descricao or 'conectcar' in descricao or 'tembici' in descricao or 'park' in descricao or 'barcas' in descricao or 'digipare' in descricao or 'auto_pos' in descricao:
+        return 'transporte'
+    elif 'americanas' in descricao or 'cell' in descricao or 'mundo_baby' in descricao or 'centauro' in descricao or 'cea' in descricao or 'renner' in descricao or 'pag*lojasrennersa' in descricao or 'iphone' in descricao or 'casa_e_vi' in descricao or 'relusa' in descricao or 'marketplace' in descricao or 'mr_cat' in descricao or 'cresci_e_perdi' in descricao or 'tonys_baby' in descricao or 'cirandinha_baby' in descricao or 'loungerie' in descricao or 'amazon' in descricao or 'shein' in descricao or 'calcad' in descricao or 'mercadolivre' in descricao:
+        return 'compras'
+    elif 'netflix' in descricao or 'spotify' in descricao or 'apple.com/bill' in descricao or 'apple_com/bill' in descricao or 'primebr' in descricao or 'doist' in descricao:
         return 'servicos'
     elif 'drog' in descricao or 'labora' in descricao:
         return 'saude'
     elif 'liberty' in descricao or 'calhas' in descricao or 'first_class' in descricao or 'chaveiro' in descricao or 'leroy' in descricao or 'lojas_g' in descricao or 'angela' in descricao or 'camica' in descricao or 'tok' in descricao or 'darkstore' in descricao:
-        return 'Casa'
+        return 'casa'
     elif 'infne' in descricao or 'cisco' in descricao:
         return 'educacao'
     elif 'funcional' in descricao:
         return 'esporte'
-    elif 'beto_carrero' in descricao or 'ticket' in descricao:
+    elif 'beto_carrero' in descricao or 'ticket' in descricao or 'rio_Arena' in descricao:
         return 'diversao'    
     elif 'chic' in descricao or 'cabel' in descricao or 'sephora' in descricao or 'skin' in descricao or 'boticario' in descricao:
         return 'beleza' 
@@ -55,14 +55,14 @@ def classificar_despesa(descricao):
     elif 'assb_comerci' in descricao or 'toy_boy' in descricao or 'kop' in descricao or 'happy' in descricao:
         return 'presente'
     else:
-        return 'Outros'
+        return 'outros'
 
 def iniciar_driver():
     # Inicializa o driver do Selenium
     chrome_options = Options()
     chrome_options.add_argument("--disable-extensions")
     chrome_options.add_argument("--disable-gpu")
-    chrome_options.add_argument("--headless")  # Uncomment this line if you want to start Chrome in headless mode
+    #chrome_options.add_argument("--headless")  # Uncomment this line if you want to start Chrome in headless mode
     driver = uc.Chrome(use_subprocess=True, options=chrome_options)
     return driver
 
@@ -177,15 +177,18 @@ def acessar_pagina_transacoes(driver):
         EC.presence_of_element_located((By.CSS_SELECTOR, '#dashboard-transactions-cards-accumuleted-balance > div'))
     )
     # Após o login, redireciona para a pagina de transacoes
-    driver.get('https://web.mobills.com.br/transactions')
+    #driver.get('https://web.mobills.com.br/transacoes')
+    print('Acessando a página de transações')
     time.sleep(5)
-    WebDriverWait(driver, 30).until(
-        EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div/div/div/main/div[2]/div[1]/div/button/span[1]/h6'))
-    )
+    #WebDriverWait(driver, 30).until(
+    #    EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div/div/div/main/div[2]/div[1]/div/button/span[1]/h6'))
+    #)
+    driver.find_element(By.XPATH, '/html/body/div[1]/div/div/div/div/div/div/ul/a[3]').click() #clilca no menu transacoes
     return driver
 
 def obter_html_final(driver):
     # Check if it is after the 10th day of the month
+    print('entrando na funcao do dia')
     if datetime.datetime.now().day >= 10:
         time.sleep(5)
         # Click on the "Next Month" button
@@ -198,6 +201,15 @@ def obter_html_final(driver):
             EC.presence_of_element_located((By.CSS_SELECTOR, 'table'))
         )
         time.sleep(5)
+
+    else: #caso seja antes do dia 10, baixa o html normalmente do mes corrente
+        print('antes do dia 10')
+        time.sleep(5)
+        WebDriverWait(driver, 30).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, 'table'))
+        )
+        time.sleep(5)
+
     # Get the HTML of the page again
     html_final = driver.page_source
     #escrita do html em um arquivo
@@ -241,21 +253,25 @@ def processar_dados_sem_drive():
     data = []
     for row in table.find_all('tr'):
         row_data = [cell.get_text() for cell in row.find_all('td')]
-        #print(row_data)
         if len(row_data) == 0:
             continue
         if row.find_all('td')[5].get('style')[11] == '7':
             row_data.append('receita')
         else: 
             row_data.append('despesa')
-        if row.find_all('td')[2].find_all('span')[0].get('title') == None:
+        if row.find_all('td')[2].find_all('span')[0].get('title') == None: #se a descricao for nula 
+            row_data.append(row.find_all('td')[0].find_all('svg')[1].get('title')) #coloca a o tipo na coluna tipo
+            print(row.find_all('td')[0].find_all('svg')[1].get('title'))
             data.append(row_data)
         else:
-            row_data[2] = row.find_all('td')[2].find_all('span')[0].get('title')
+            row_data[2] = row.find_all('td')[2].find_all('span')[0].get('title') #coloca a descricao completa na coluna descricao
+            row_data.append(row.find_all('td')[0].find_all('svg')[1].get('title')) #coloca a o tipo na coluna tipo
+            print(row.find_all('td')[0].find_all('svg')[1].get('title'))
+            print(row.find_all('td')[2].find_all('span')[0].get('title'))
             data.append(row_data)
 
     # Create a DataFrame from the data
-    columns = ['Status', 'Dara', 'Descricao', 'Categoria', 'Conta', 'Valor', 'Acoes', 'RecXDes']
+    columns = ['Status', 'Data', 'Descricao', 'Categoria', 'Conta', 'Valor', 'Acoes', 'RecXDes', 'Tipo']
     df = pd.DataFrame(data, columns=columns)
     df.to_csv('transacoes.csv')
     return df
@@ -298,8 +314,9 @@ def ajustar_dataframe(df):
     # Remove as colunas 'Acoes' e 'Status'
     df = df.drop(columns=['Acoes', 'Status'])
 
-    # Ajusta os caracteres da coluna 'Descricao'
+    # Ajusta os caracteres da coluna 'Descricao' e 'Tipo'
     df['Descricao'] = ajusta_caracteres(df['Descricao'])
+    df['Tipo'] = ajusta_caracteres(df['Tipo'])
 
     # Aplica a função para criar a nova coluna 'Categoria'
     df['Categoria'] = df['Descricao'].apply(classificar_despesa)
@@ -316,6 +333,9 @@ def ajustar_dataframe(df):
 
     # Remove as receitas
     df = df[df['RecXDes'] != 'receita']
+
+    #Remove onde Tipo e igual a transacao_automatica
+    df = df[df['Tipo'] != 'transacao_automatica']
 
     # Print the DataFrame
     #print(df)
@@ -350,7 +370,8 @@ From: {sender}
 Data: {datetime.datetime.now().strftime('%d/%m/%Y')}
 Despesas por Categoria:
 {df_grouped}
-Total: R$ {total}"""
+"""
+    #Total: R$ {total}
     print(message)
     with smtplib.SMTP("live.smtp.mailtrap.io", 587) as server:
         server.starttls()
@@ -358,21 +379,43 @@ Total: R$ {total}"""
         server.sendmail(sender, receiver, message)
 
 def main():
+
+    html = obter_html()
+    '''
     try:
         html = obter_html()
         print("HTML Obtido com sucesso")
     except Exception as e:
         print(f"Erro final apos multiplas tentativas: {e}")
     finally:
-        print("Processo de obtencao do html concluido")
-    df = processar_dados_com_drive(html)
-    #df = processar_dados_sem_drive()
+        print("Processo de obtencao do html concluido com ou sem sucesso")
+    '''
+    #df = processar_dados_com_drive(html)
+    df = processar_dados_sem_drive()
     df = ajustar_dataframe(df)
     df.to_csv('transacoes_ajustado.csv')
     #criar_grafico(df)
-    df_grouped = df.groupby('Categoria')['Valor'].sum()
+    df_grouped = df.groupby('Categoria')['Valor'].sum().reset_index()
+    limites = {
+        'alimentacao': 800,
+        'transporte': 1650,
+        'saude': 300,
+        'casa': 500,
+        'educacao': 100,
+        'esporte': 50,
+        'diversao': 200,
+        'beleza': 200,
+        'anuidade': 150,
+        'outros': 200,
+        'compras': 800,
+        'servicos': 75,
+        'viagem': 2000
+    }
+    df_grouped['Limite'] = df_grouped['Categoria'].map(limites)
+    #coluna porcentagem
+    df_grouped['Porcentagem'] = df_grouped['Valor'] / df_grouped['Limite']
     enviar_email_mailtrap(df_grouped, df_grouped.sum())
-    print("Email enviado com sucesso")
+    #print("Email enviado com sucesso")
 
 if __name__ == "__main__":
     main()
